@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christian Revival Church</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Color Palette */
+            --color-primary: #9D2235;
+            --color-primary-light: #BF4D60;
+            --color-accent: #FFC72C;
+            --color-accent-light: #FFD96E;
+            --color-dark: #333333;
+            --color-light: #F8F8F8;
+            --color-white: #FFFFFF;
+            
+            /* Typography */
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 4rem;
+            --space-xl: 8rem;
+            
+            /* Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            
+            /* Shadows */
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-dark);
+            line-height: 1.6;
+            background-color: var(--color-light);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            margin-bottom: var(--space-sm);
+            color: var(--color-primary);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-md);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-primary-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-accent {
+            background-color: var(--color-accent);
+            color: var(--color-dark);
+        }
+
+        .btn-accent:hover {
+            background-color: var(--color-accent-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--color-white);
+            box-shadow: var(--shadow-sm);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-sm) var(--space-md);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: var(--space-sm);
+        }
+
+        .logo-text {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--color-primary);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-left: var(--space-md);
+        }
+
+        .nav-link {
+            font-weight: 600;
+            padding: var(--space-xs) 0;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('pp.jpg') no-repeat center center/cover;
+            color: var(--color-white);
+            padding: var(--space-xl) 0;
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: var(--space-md);
+            color: var(--color-white);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-lg);
+            font-weight: 300;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: var(--space-lg) 0;
+        }
+
+        .stat-item {
+            flex: 1;
+            min-width: 200px;
+            margin: var(--space-sm);
+            padding: var(--space-md);
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            margin-bottom: var(--space-xs);
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* About Section */
+        .section {
+            padding: var(--space-lg) 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--space-lg);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--color-accent);
+            margin: var(--space-sm) auto;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Leadership Section */
+        .leadership {
+            background-color: var(--color-white);
+        }
+
+        .leaders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-md);
+        }
+
+        .leader-card {
+            background-color: var(--color-light);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .leader-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .leader-info {
+            padding: var(--space-md);
+        }
+
+        .leader-name {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-xs);
+        }
+
+        .leader-role {
+            color: var(--color-primary);
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+        }
+
+        .leader-bio {
+            margin-bottom: var(--space-sm);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-md);
+        }
+
+        .service-card {
+            background-color: var(--color-white);
+            border-radius: var(--radius-md);
+            padding: var(--space-md);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--color-accent);
+            margin-bottom: var(--space-sm);
+        }
+
+        .service-time {
+            font-weight: 600;
+            color: var(--color-primary);
+            margin: var(--space-xs) 0;
+        }
+
+        /* Events Section */
+        .events {
+            background-color: var(--color-white);
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-md);
+        }
+
+        .event-card {
+            background-color: var(--color-light);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .event-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .event-date {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            padding: var(--space-xs) var(--space-sm);
+            display: inline-block;
+            border-radius: var(--radius-sm);
+            margin: var(--space-sm) 0;
+            font-weight: 600;
+        }
+
+        .event-info {
+            padding: var(--space-md);
+        }
+
+        .event-title {
+            font-size: 1.25rem;
+            margin-bottom: var(--space-xs);
+        }
+
+        /* Testimonials */
+        .testimonials-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial {
+            background-color: var(--color-white);
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            margin: var(--space-md) 0;
+            text-align: center;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: var(--space-md);
+            position: relative;
+            padding: 0 var(--space-md);
+        }
+
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--color-accent-light);
+            position: absolute;
+        }
+
+        .testimonial-text::before {
+            top: -20px;
+            left: 0;
+        }
+
+        .testimonial-text::after {
+            bottom: -40px;
+            right: 0;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        /* Give Section */
+        .give {
+            background: linear-gradient(to bottom, var(--color-primary), var(--color-primary-light));
+            color: var(--color-white);
+            text-align: center;
+        }
+
+        .give .section-title {
+            color: var(--color-white);
+        }
+
+        .give-options {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+            margin: var(--space-lg) 0;
+        }
+
+        .give-option {
+            background-color: var(--color-white);
+            color: var(--color-dark);
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .give-option-title {
+            color: var(--color-primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .stripe-form {
+            background-color: var(--color-white);
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-group {
+            margin-bottom: var(--space-md);
+            text-align: left;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: var(--space-xs);
+            font-weight: 600;
+            color: var(--color-dark);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: var(--space-sm);
+            border: 1px solid #ddd;
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-details {
+            margin-bottom: var(--space-md);
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--space-sm);
+        }
+
+        .contact-icon {
+            color: var(--color-primary);
+            margin-right: var(--space-sm);
+            font-size: 1.25rem;
+            width: 30px;
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-dark);
+            color: var(--color-white);
+            padding: var(--space-lg) 0;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-title {
+            color: var(--color-white);
+            margin-bottom: var(--space-md);
+            position: relative;
+        }
+
+        .footer-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: var(--color-accent);
+            margin-top: var(--space-xs);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-link {
+            margin-bottom: var(--space-xs);
+        }
+
+        .footer-link a:hover {
+            color: var(--color-accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--space-sm);
+            margin-top: var(--space-sm);
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: var(--color-primary);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: var(--space-lg);
+            padding-top: var(--space-md);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.25rem;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background-color: var(--color-white);
+                width: 100%;
+                box-shadow: var(--shadow-md);
+                padding: var(--space-md);
+                transition: left 0.3s ease;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-item {
+                margin: var(--space-sm) 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .stat-item {
+                min-width: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="ap.jpg " alt="Christian Revival Church Logo">
+                <div class="logo-text">Christian Revival Church</div>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#leadership" class="nav-link">Leadership</a></li>
+                    <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="#events" class="nav-link">Events</a></li>
+                    <li class="nav-item"><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                    <li class="nav-item"><a href="#give" class="nav-link">Give</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Welcome to Christian Revival Church</h1>
+                <p class="hero-subtitle">Where faith, community, and love come together to transform lives</p>
+                <a href="#services" class="btn btn-accent">Join Us This Sunday</a>
+                
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Members</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">10</div>
+                        <div class="stat-label">Years Serving</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">Lives Changed</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Our Church</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Christian Revival Church was founded in 2018 with a mission to spread the love of Christ and bring spiritual renewal to our community. We believe in the power of faith, the importance of fellowship, and the transformative work of the Holy Spirit.</p>
+                    <p>Our church is a place where everyone is welcome, regardless of where they are on their spiritual journey. We strive to create an environment where people can encounter God, grow in their faith, and discover their purpose.</p>
+                    <p>Through our various ministries, outreach programs, and worship services, we aim to be a light in our community and make a positive impact in the world around us.</p>
+                </div>
+                <div class="about-image">
+                    <img src="hero.jpg" alt="Church interior">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section id="leadership" class="section leadership">
+        <div class="container">
+            <h2 class="section-title">Our Leadership</h2>
+            <div class="leaders-grid">
+                <div class="leader-card">
+                    <img src="ap.jpg" alt="Apostle Ishmael Samuponda" class="leader-image">
+                    <div class="leader-info">
+                        <h3 class="leader-name">Apostle Ishmael Samuponda</h3>
+                        <p class="leader-role">Senior Pastor & Founder</p>
+                        <p class="leader-bio">Apostle Samuponda has been serving the Lord for over 10 years. He is passionate about teaching the Word of God and empowering believers to fulfill their divine purpose.</p>
+                    </div>
+                </div>
+                
+                <div class="leader-card">
+                    <img src=" " alt="Pastor Sibalo and Amai" class="leader-image">
+                    <div class="leader-info">
+                        <h3 class="leader-name">Pastor Sibalo and Amai</h3>
+                        <p class="leader-role">Associate Pastor</p>
+                        <p class="leader-bio">Pastor Sibalo and Amai leads our worship ministry and women's fellowship. She has a heart for mentoring and helping people develop their spiritual gifts.</p>
+                    </div>
+                </div>
+                
+                <div class="leader-card">
+                    <img src=" " alt="Deacon  Brown" class="leader-image">
+                    <div class="leader-info">
+                        <h3 class="leader-name">Deacon Brown</h3>
+                        <p class="leader-role">Head of Deacons</p>
+                        <p class="leader-bio">Deacon Brown oversees the church's outreach programs and community service initiatives. He is dedicated to serving those in need.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-church"></i>
+                    </div>
+                    <h3>Sunday Worship</h3>
+                    <p class="service-time">8:30 AM & 11:00 AM</p>
+                    <p>Join us for powerful worship, prayer, and an inspiring message from God's Word.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-pray"></i>
+                    </div>
+                    <h3>Wednesday Bible Study</h3>
+                    <p class="service-time">7:00 PM</p>
+                    <p>Midweek gathering for in-depth Bible study and prayer fellowship.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Youth Ministry</h3>
+                    <p class="service-time">Fridays 6:30 PM</p>
+                    <p>Dynamic youth services with relevant teaching and fun activities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="section events">
+        <div class="container">
+            <h2 class="section-title">Upcoming Events</h2>
+            <div class="events-grid">
+                <div class="event-card">
+                    <img src=" " alt="Church Retreat" class="event-image">
+                    <div class="event-info">
+                        <div class="event-date">Dec 15-17, 202</div>
+                        <h3 class="event-title">Annual Church Retreat</h3>
+                        <p>Join us for a weekend of spiritual renewal and fellowship in the beautiful mountains.</p>
+                        <a href="#" class="btn btn-primary">Register Now</a>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <img src=" " alt="Community Outreach" class="event-image">
+                    <div class="event-info">
+                        <div class="event-date">Dec 24, 2025</div>
+                        <h3 class="event-title">Community Outreach Day</h3>
+                        <p>We're hitting the streets to serve our community with love and practical help.</p>
+                        <a href="#" class="btn btn-primary">Volunteer</a>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <img src=" " alt="Vacation Bible School" class="event-image">
+                    <div class="event-info">
+                        <div class="event-date">Dec 10-14, 2025</div>
+                        <h3 class="event-title">Vacation Bible School</h3>
+                        <p>A fun-filled week of Bible stories, games, and crafts for kids ages 5-12.</p>
+                        <a href="#" class="btn btn-primary">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section">
+        <div class="container">
+            <h2 class="section-title">What People Are Saying</h2>
+            <div class="testimonials-container">
+                <div class="testimonial">
+                    <p class="testimonial-text">Christian Revival Church has transformed my life. The teachings are practical and powerful, and the community is loving and supportive.</p>
+                    <p class="testimonial-author">- Mr Ncube</p>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">I've never felt more at home in a church. The messages speak directly to my life circumstances, and I've grown so much spiritually since joining.</p>
+                    <p class="testimonial-author">- Modleen</p>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">The youth ministry has been a blessing to my teenagers. They're excited about church and growing in their relationship with God.</p>
+                    <p class="testimonial-author">- The Ndlou Family</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Give Section -->
+    <section id="give" class="section give">
+        <div class="container">
+            <h2 class="section-title">Give</h2>
+            <p>Your generous giving helps us spread the Gospel and serve our community.</p>
+            
+            <div class="give-options">
+                <div class="give-option">
+                    <h3 class="give-option-title">Tithe</h3>
+                    <p>Faithfully returning 10% of your income to God's work</p>
+                    <a href="#" class="btn btn-primary">Give Tithe</a>
+                </div>
+                
+                <div class="give-option">
+                    <h3 class="give-option-title">Offering</h3>
+                    <p>Giving above and beyond to support special ministries</p>
+                    <a href="#" class="btn btn-primary">Give Offering</a>
+                </div>
+                
+                <div class="give-option">
+                    <h3 class="give-option-title">Missions</h3>
+                    <p>Supporting our missionaries and outreach programs</p>
+                    <a href="#" class="btn btn-primary">Give to Missions</a>
+                </div>
+            </div>
+            
+            <div class="stripe-form">
+                <h3>Give Securely with Stripe</h3>
+                <form id="donation-form">
+                    <div class="form-group">
+                        <label for="amount" class="form-label">Amount ($)</label>
+                        <input type="number" id="amount" class="form-input" min="1" step="any" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" id="name" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="card-element" class="form-label">Credit or Debit Card</label>
+                        <div id="card-element" class="form-input">
+                            <!-- Stripe Elements will create form elements here -->
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-accent" style="width: 100%;">Donate Now</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <p>Payless shops</p>
+                                <p>Mkhosana ,Victoria Falls</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <p>263 77 953 1636</p>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <p>info@christianrevivalchurch.org</p>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <p>Office Hours: Monday-Friday 9AM-5PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="contact-name" class="form-label">Name</label>
+                            <input type="text" id="contact-name" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-email" class="form-label">Email</label>
+                            <input type="email" id="contact-email" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-message" class="form-label">Message</label>
+                            <textarea id="contact-message" class="form-input" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3 class="footer-title">Christian Revival Church</h3>
+                    <p>Spreading God's love and transforming lives through the power of the Gospel.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#home">Home</a></li>
+                        <li class="footer-link"><a href="#about">About</a></li>
+                        <li class="footer-link"><a href="#services">Services</a></li>
+                        <li class="footer-link"><a href="#events">Events</a></li>
+                        <li class="footer-link"><a href="#give">Give</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Ministries</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">Men's Ministry</a></li>
+                        <li class="footer-link"><a href="#">Women's Ministry</a></li>
+                        <li class="footer-link"><a href="#">Youth Ministry</a></li>
+                        <li class="footer-link"><a href="#">Children's Ministry</a></li>
+                        <li class="footer-link"><a href="#">Outreach</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Resources</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">Sermons</a></li>
+                        <li class="footer-link"><a href="#">Devotionals</a></li>
+                        <li class="footer-link"><a href="#">Prayer Requests</a></li>
+                        <li class="footer-link"><a href="#">Blog</a></li>
+                        <li class="footer-link"><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Christian Revival Church. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        // Simple form validation
+        const forms = document.querySelectorAll('form');
+        forms.forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your submission! In a real implementation, this would connect to a backend service.');
+            });
+        });
+        
+        // Note: For a real implementation, Stripe.js would be included and initialized here
+        // This is just a mock implementation for demonstration purposes becuse stripe roooooooomeo doesnt know the ode for stripe
+        document.getElementById('donation-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your donation! This would process through Stripe in a real implementation.');
+        });
+    </script>
+</body>
+</html>
